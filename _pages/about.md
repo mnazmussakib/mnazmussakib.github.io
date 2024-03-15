@@ -13,4 +13,3 @@ Hello ! I'm second year Ph.D. student in Computer Science at the [University of 
 My research interest consists of Computational Social Science, Social NLP and Responsible AI. **I would love to collaborate on interesting research work in these fields.** 
 
 Previously, I have completed my Bachelor of Science from Islamic University of Technology, Bangladesh. I have a two years of work experience as a front-end developer mostly using Angular framework. 
-

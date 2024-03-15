@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Md Nazmus Sakib"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Md Nazmus Sakib"
 description              : &description "Md Nazmus Sakib's Github Portfolio"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile.jpg"
   name             : "Md Nazmus Sakib"
   pronouns         : # example: "she/her"  
-  bio              : "Computer Science Ph.D. Student @UMBC"
+  bio              : "Computer Science Ph.D. Student <br> @UMBC"
   location         : "Maryland, USA"
   # employer         : "Red Brick University"
   uri              : # URL
@@ -56,7 +56,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : https://www.linkedin.com/in/nazmussakib21
+  linkedin         : /nazmussakib21
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -64,7 +64,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "UniofOxford"  # Replace this with your X / Twitter handle
+  twitter          : #"UniofOxford"  # Replace this with your X / Twitter handle
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
