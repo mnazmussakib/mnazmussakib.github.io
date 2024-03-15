@@ -11,6 +11,6 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<br> <b> [Augmented Reality Based Lifelogging System for Reminiscence](http:/mnazmussakib.github.io/files/AR_Paper.pdf) </b>
+<br> <b>Md Nazmus Sakib</b>, Mehrab Mustafy Rahman, Hasan Mahmud, Md Kamrul Hasan.
+<br> IC4IR, 2021.
