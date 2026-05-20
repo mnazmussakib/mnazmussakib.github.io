@@ -1,0 +1,74 @@
+---
+/**
+ * EDIT HERE — two sections in one file:
+ *
+ * NEWS: add/remove items from the `news` array below.
+ * Each item: { date, text, badge }
+ * badge options: "badge-teal" (publication), "badge-purple" (talk), "badge-amber" (update)
+ *
+ * ABOUT: update the two paragraphs and the skills tags array.
+ */
+
+const news = [
+  { date: "May 2025", text: "Paper accepted at CHI 2025",          badge: "badge-teal",   label: "publication" },
+  { date: "Mar 2025", text: "Talk at [Conference Name]",            badge: "badge-purple", label: "talk"        },
+  { date: "Jan 2025", text: "Started research internship at [Lab]", badge: "badge-amber",  label: "update"      },
+  { date: "Sep 2024", text: "Workshop paper at CSCW 2024",          badge: "badge-teal",   label: "publication" },
+  { date: "Aug 2024", text: "Joined [Lab Name] as PhD student",     badge: "badge-amber",  label: "update"      },
+];
+
+const skills = ["user studies", "qualitative research", "Python", "prototyping", "participatory design"];
+---
+<style>
+  .news-about { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .news-item { display: flex; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .news-item:last-child { border-bottom: none; }
+  .news-date { font-size: 12px; color: var(--text-tertiary); min-width: 75px; font-family: var(--font-body); }
+  .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
+  .about-bio { font-size: 14px; margin-bottom: 14px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 6px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+
+<section class="news-about">
+  <div class="two-col">
+
+    <!-- News column -->
+    <div>
+      <p class="section-eyebrow">News</p>
+      <h2 style="margin-bottom:20px;">Recent updates</h2>
+      <div>
+        {news.map(item => (
+          <div class="news-item">
+            <span class="news-date">{item.date}</span>
+            <span class="news-text">
+              {item.text}
+              <span class={`news-badge ${item.badge}`}>{item.label}</span>
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- About column -->
+    <div>
+      <p class="section-eyebrow">About</p>
+      <h2 style="margin-bottom:16px;">A bit about me</h2>
+      <p class="about-bio">
+        I'm a PhD student passionate about making AI systems that genuinely work for
+        the people using them. Before grad school, I studied [background]. I'm advised
+        by Prof. [Advisor] at [University] and affiliated with [Lab Name].
+      </p>
+      <p class="about-bio">
+        Outside the lab I love traveling, photography, and anything that gets me
+        outside. Check out my <a href="/life" style="color:var(--amber-600);text-decoration:underline;">life page</a> →
+      </p>
+      <div class="skills">
+        {skills.map(s => <span class="tag">{s}</span>)}
+      </div>
+    </div>
+
+  </div>
+</section>

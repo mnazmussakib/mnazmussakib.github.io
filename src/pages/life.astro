@@ -1,0 +1,76 @@
+---
+/**
+ * Layout only — don't edit this file to add photos.
+ * Add photos in: src/data/photos.js
+ */
+import Base from '../layouts/Base.astro';
+import { photos } from '../data/photos.js';
+
+const categories = ["all", "travel", "everyday", "people"];
+---
+<Base title="Life — Md. Nazmus Sakib">
+<style>
+  .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .filter-bar { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+  .filter-btn { font-family: var(--font-body); font-size: 12px; font-weight: 500; padding: 6px 16px; border-radius: 99px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.15s; letter-spacing: 0.03em; }
+  .filter-btn:hover, .filter-btn.active { background: var(--amber-50); border-color: var(--amber-100); color: var(--amber-600); }
+  .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .photo-item { border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-muted); border: 1px solid var(--border); cursor: pointer; transition: transform 0.2s, border-color 0.15s; }
+  .photo-item:hover { transform: translateY(-3px); border-color: var(--border-hover); }
+  .photo-item.hidden { display: none; }
+  .photo-thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .photo-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--amber-50); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--amber-100); }
+  .photo-caption { padding: 12px 14px; }
+  .photo-caption p { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; font-family: var(--font-display); line-height: 1.3; }
+  .photo-caption span { font-size: 11px; color: var(--text-tertiary); }
+  @media (max-width: 640px) { .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+</style>
+
+<div class="container">
+  <div class="page-hero">
+    <p class="section-eyebrow">Life</p>
+    <h1>Beyond the research</h1>
+    <p style="max-width:480px;font-size:15px;margin-top:12px;">
+      I spend a lot of time thinking about humans and AI — but I also just like being human.
+      Here's a window into what that looks like outside the lab.
+    </p>
+  </div>
+
+  <div class="filter-bar">
+    {categories.map(cat => (
+      <button class={`filter-btn ${cat === 'all' ? 'active' : ''}`} data-filter={cat}>
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <div class="photo-grid" id="gallery">
+    {photos.map(photo => (
+      <div class="photo-item" data-category={photo.category}>
+        <img src={photo.src} alt={photo.caption} class="photo-thumb"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="photo-placeholder" style="display:none;">📷</div>
+        <div class="photo-caption">
+          <p>{photo.caption}</p>
+          <span>{photo.location}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const btns  = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.photo-item');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      btns.forEach(b  => b.classList.remove('active'));
+      btn.classList.add('active');
+      items.forEach(item => {
+        item.classList.toggle('hidden', filter !== 'all' && item.dataset.category !== filter);
+      });
+    });
+  });
+</script>
+</Base>

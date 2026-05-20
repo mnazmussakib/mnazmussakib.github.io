@@ -1,0 +1,39 @@
+---
+/**
+ * EDIT HERE:
+ * - heading and subtext
+ * - href values for email, GitHub, Twitter, LinkedIn
+ */
+---
+<style>
+  .connect {
+    background: var(--amber-50); border: 1px solid var(--amber-100);
+    border-radius: var(--radius-xl); padding: 36px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px; flex-wrap: wrap; margin-top: 56px;
+  }
+  .connect h2 { font-size: 1.3rem; color: var(--amber-900); margin-bottom: 6px; }
+  .connect p { font-size: 14px; color: var(--amber-600); font-family: var(--font-body); }
+  .connect-links { display: flex; gap: 10px; flex-shrink: 0; }
+  .connect-link {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg-surface); border: 1px solid var(--amber-100);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--amber-600); font-size: 1rem; text-decoration: none; transition: all 0.15s;
+  }
+  .connect-link:hover { background: var(--amber-100); border-color: var(--amber-200); }
+  @media (max-width: 640px) { .connect { flex-direction: column; } }
+</style>
+
+<div class="connect">
+  <div>
+    <h2>Let's talk about research</h2>
+    <p>Open to collaborations, reading groups, and coffee chats.</p>
+  </div>
+  <div class="connect-links">
+    <a href="mailto:your@email.edu"                    class="connect-link" title="Email">✉</a>
+    <a href="https://github.com/mnazmussakib" target="_blank" class="connect-link" title="GitHub">gh</a>
+    <a href="https://twitter.com"             target="_blank" class="connect-link" title="Twitter">𝕏</a>
+    <a href="https://linkedin.com"            target="_blank" class="connect-link" title="LinkedIn">in</a>
+  </div>
+</div>

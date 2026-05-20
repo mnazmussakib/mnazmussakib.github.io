@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Lora', serif;
+
+  --amber-50:  #FAEEDA;
+  --amber-100: #FAC775;
+  --amber-200: #EF9F27;
+  --amber-600: #854F0B;
+  --amber-900: #412402;
+
+  --teal-50:  #E1F5EE;
+  --teal-400: #1D9E75;
+  --teal-600: #0F6E56;
+
+  --coral-50:  #FAECE7;
+  --coral-600: #993C1D;
+
+  --purple-50:  #EEEDFE;
+  --purple-600: #534AB7;
+
+  --text-primary:   #1a1916;
+  --text-secondary: #5a5751;
+  --text-tertiary:  #9a9690;
+
+  --bg-page:    #faf9f6;
+  --bg-surface: #ffffff;
+  --bg-muted:   #f3f1ec;
+
+  --border:       rgba(30,25,20,0.10);
+  --border-hover: rgba(30,25,20,0.20);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 500; line-height: 1.25; color: var(--text-primary); }
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+p  { color: var(--text-secondary); line-height: 1.75; }
+a  { color: inherit; text-decoration: none; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+  background: var(--bg-muted);
+}
+
+.badge-amber { background: var(--amber-50); color: var(--amber-600); border-color: var(--amber-100); }
+.badge-teal  { background: var(--teal-50);  color: var(--teal-600);  border-color: #9FE1CB; }
+.badge-coral { background: var(--coral-50); color: var(--coral-600); border-color: #F5C4B3; }
+.badge-purple{ background: var(--purple-50);color: var(--purple-600);border-color: #CECBF6; }
+
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.divider { border: none; border-top: 1px solid var(--border); }

@@ -1,0 +1,189 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Research — Md. Nazmus Sakib" description="Human-AI Interaction research projects">
+<style>
+  .page-hero {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+  }
+  .page-hero p { max-width: 560px; font-size: 15px; margin-top: 12px; }
+
+  .project-full {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .project-full:last-child { border-bottom: none; }
+  .proj-meta {}
+  .proj-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .proj-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+  }
+  .status-active { background: var(--teal-50); color: var(--teal-600); border: 1px solid #9FE1CB; }
+  .status-complete { background: var(--bg-muted); color: var(--text-tertiary); border: 1px solid var(--border); }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+
+  .proj-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
+  .proj-content p { font-size: 14px; line-height: 1.8; margin-bottom: 14px; }
+  .proj-pubs { margin-top: 20px; }
+  .pub-item {
+    background: var(--bg-muted);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    margin-bottom: 8px;
+  }
+  .pub-item p { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .pub-item span { font-size: 12px; color: var(--text-tertiary); }
+  .pub-link { font-size: 12px; color: var(--amber-600); margin-left: 12px; }
+  .pub-link:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .project-full { grid-template-columns: 1fr; gap: 20px; }
+    .proj-num { font-size: 2rem; }
+  }
+</style>
+
+<div class="container">
+  <div class="page-hero">
+    <p class="section-eyebrow">Research</p>
+    <h1>What I work on</h1>
+    <p>
+      My work sits at the intersection of HCI, AI, and social science.
+      I use qualitative and quantitative methods to understand how people
+      experience AI — and design better interactions from those insights.
+    </p>
+  </div>
+
+  <!-- Project 1 -->
+  <div id="teaming" class="project-full">
+    <div class="proj-meta">
+      <div class="proj-num">01</div>
+      <span class="proj-status status-active">Active</span>
+      <div class="proj-tags">
+        <span class="tag badge-amber">CHI</span>
+        <span class="tag">mixed-methods</span>
+        <span class="tag">field study</span>
+      </div>
+    </div>
+    <div class="proj-content">
+      <h3>Human-AI teaming in high-stakes decisions</h3>
+      <p>
+        When people work alongside AI systems on decisions that really matter — medical triage,
+        legal review, crisis response — how do they divide cognitive labor? When do they defer to
+        the AI, and when do they push back?
+      </p>
+      <p>
+        This project uses contextual inquiry and controlled experiments to map the dynamics of
+        human-AI collaboration, with the goal of designing AI teammates that complement rather
+        than displace human judgment.
+      </p>
+      <div class="proj-pubs">
+        <div class="pub-item">
+          <p>Title of your CHI 2025 paper goes here</p>
+          <span>CHI 2025</span>
+          <a href="#" class="pub-link">PDF →</a>
+          <a href="#" class="pub-link">Code →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div id="transparency" class="project-full">
+    <div class="proj-meta">
+      <div class="proj-num">02</div>
+      <span class="proj-status status-active">Active</span>
+      <div class="proj-tags">
+        <span class="tag badge-teal">XAI</span>
+        <span class="tag">UX research</span>
+        <span class="tag">user study</span>
+      </div>
+    </div>
+    <div class="proj-content">
+      <h3>Designing for appropriate AI transparency</h3>
+      <p>
+        More explanation isn't always better. This project investigates what kinds of AI
+        explanations actually help users make better decisions — and which ones overwhelm,
+        confuse, or paradoxically reduce trust.
+      </p>
+      <p>
+        We run think-aloud studies and A/B experiments across explanation formats (saliency maps,
+        counterfactuals, natural language) to identify when transparency works and when it backfires.
+      </p>
+      <div class="proj-pubs">
+        <div class="pub-item">
+          <p>Title of your CSCW 2024 paper goes here</p>
+          <span>CSCW 2024 workshop</span>
+          <a href="#" class="pub-link">PDF →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div id="inclusive" class="project-full">
+    <div class="proj-meta">
+      <div class="proj-num">03</div>
+      <span class="proj-status status-active">Active</span>
+      <div class="proj-tags">
+        <span class="tag badge-coral">PD</span>
+        <span class="tag">accessibility</span>
+        <span class="tag">co-design</span>
+      </div>
+    </div>
+    <div class="proj-content">
+      <h3>Inclusive AI interface design</h3>
+      <p>
+        AI tools are often built for a narrow slice of users. This project uses participatory
+        design methods to co-design AI-powered tools with communities who are typically left
+        out of the design process.
+      </p>
+      <p>
+        Current work focuses on [specific community/context]. We hold co-design workshops,
+        deploy prototypes, and iterate based on lived experience rather than assumed needs.
+      </p>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div id="mental-models" class="project-full">
+    <div class="proj-meta">
+      <div class="proj-num">04</div>
+      <span class="proj-status status-complete">Completed</span>
+      <div class="proj-tags">
+        <span class="tag badge-purple">cognitive</span>
+        <span class="tag">HCI</span>
+        <span class="tag">survey</span>
+      </div>
+    </div>
+    <div class="proj-content">
+      <h3>How lay users understand AI behavior</h3>
+      <p>
+        Most people who use AI-powered tools have no technical background. What mental models
+        do they form? How accurate are those models, and how do inaccurate models lead to
+        over-trust, under-trust, or misuse?
+      </p>
+      <p>
+        Using surveys, diary studies, and interviews, we mapped the landscape of lay AI mental
+        models and identified design patterns that help calibrate user expectations.
+      </p>
+    </div>
+  </div>
+</div>
+</Base>
