@@ -5,6 +5,9 @@
  */
 import home from '../data/home.json';
 const { news, contact } = home;
+
+const NEWS_PER_PAGE = 5;
+const totalPages = Math.max(1, Math.ceil(news.length / NEWS_PER_PAGE));
 ---
 <style>
   .news-about { padding: 56px 0; border-bottom: 1px solid var(--border); }
@@ -23,6 +26,15 @@ const { news, contact } = home;
   .news-date { font-size: 12px; color: var(--text-tertiary); min-width: 75px; font-family: var(--font-body); }
   .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
   .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
+  .news-pagination { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
+  .news-page-btn {
+    font-family: var(--font-body); font-size: 12px; font-weight: 500;
+    color: var(--amber-600); background: transparent; border: 1px solid var(--amber-100);
+    border-radius: var(--radius-md); padding: 5px 12px; cursor: pointer; transition: all 0.15s;
+  }
+  .news-page-btn:hover:not(:disabled) { background: var(--amber-50); border-color: var(--amber-200); }
+  .news-page-btn:disabled { color: var(--text-tertiary); border-color: var(--border); cursor: default; }
+  .news-page-indicator { font-size: 12px; color: var(--text-tertiary); }
   .contact-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
   .contact-link {
     display: inline-flex; align-items: center; gap: 10px;
@@ -44,17 +56,33 @@ const { news, contact } = home;
     <div>
       <p class="section-eyebrow">News</p>
       <h2 style="margin-bottom:20px;">Recent updates</h2>
-      <div>
-        {news.map((item, i) => (
-          <div class="news-item" style={`animation-delay: ${i * (4800 / news.length)}ms`}>
-            <span class="news-date">{item.date}</span>
-            <span class="news-text">
-              {item.text}
-              <span class={`news-badge ${item.badge}`}>{item.label}</span>
-            </span>
-          </div>
-        ))}
+      <div id="news-list">
+        {news.map((item, i) => {
+          const page = Math.floor(i / NEWS_PER_PAGE);
+          const posInPage = i % NEWS_PER_PAGE;
+          const delay = posInPage * (4800 / NEWS_PER_PAGE);
+          return (
+            <div
+              class="news-item"
+              data-page={page}
+              style={`animation-delay: ${delay}ms;${page === 0 ? '' : ' display:none;'}`}
+            >
+              <span class="news-date">{item.date}</span>
+              <span class="news-text">
+                {item.text}
+                <span class={`news-badge ${item.badge}`}>{item.label}</span>
+              </span>
+            </div>
+          );
+        })}
       </div>
+      {totalPages > 1 && (
+        <div class="news-pagination">
+          <button type="button" id="news-prev" class="news-page-btn" disabled>← Prev</button>
+          <span class="news-page-indicator" id="news-page-indicator">Page 1 of {totalPages}</span>
+          <button type="button" id="news-next" class="news-page-btn">Next →</button>
+        </div>
+      )}
     </div>
 
     <!-- Contact column -->
@@ -89,3 +117,31 @@ const { news, contact } = home;
 
   </div>
 </section>
+
+<script>
+  const items = Array.from(document.querySelectorAll('#news-list .news-item'));
+  const prevBtn = document.getElementById('news-prev');
+  const nextBtn = document.getElementById('news-next');
+  const indicator = document.getElementById('news-page-indicator');
+
+  if (items.length && prevBtn && nextBtn && indicator) {
+    const totalPages = Math.max(...items.map((el) => Number(el.dataset.page))) + 1;
+    let currentPage = 0;
+
+    const render = () => {
+      items.forEach((el) => {
+        el.style.display = Number(el.dataset.page) === currentPage ? '' : 'none';
+      });
+      indicator.textContent = `Page ${currentPage + 1} of ${totalPages}`;
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage === totalPages - 1;
+    };
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) { currentPage--; render(); }
+    });
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages - 1) { currentPage++; render(); }
+    });
+  }
+</script>
