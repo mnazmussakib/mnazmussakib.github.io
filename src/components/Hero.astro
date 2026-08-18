@@ -1,11 +1,10 @@
 ---
 /**
- * EDIT HERE:
- * - name, role, university
- * - bio paragraph
- * - photo: swap the "NS" initials for <img src="/photos/profile.jpg" alt="..." />
- * - email link
+ * Content comes from src/data/home.json (hero section) —
+ * edit there directly, or through the /admin CMS portal.
  */
+import home from '../data/home.json';
+const { hero, contact } = home;
 ---
 <style>
   .hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
@@ -36,6 +35,7 @@
     background: var(--amber-50); border: 1px solid var(--amber-100);
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display); font-size: 3rem; color: var(--amber-600); justify-self: end;
+    overflow: hidden;
   }
   .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-xl); }
   @media (max-width: 640px) {
@@ -47,24 +47,20 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-pill">Human-centered AI</div>
-      <h1>Md. Nazmus Sakib</h1>
-      <p class="hero-role">PhD Researcher · Human-AI Interaction · [Your University]</p>
-      <p class="hero-bio">
-        I design, build, and study AI systems that genuinely work <em>with</em> people.
-        My research asks: how do humans make sense of AI, and how can we design
-        interactions that feel trustworthy, transparent, and human?
-      </p>
+      <div class="hero-pill">{hero.pill}</div>
+      <h1>{hero.name}</h1>
+      <p class="hero-role">{hero.role}</p>
+      <p class="hero-bio">{hero.bio}</p>
       <div class="hero-ctas">
         <a href="/research" class="btn btn-primary">View my research →</a>
         <a href="/files/cv.pdf" target="_blank" class="btn btn-ghost">Download CV</a>
-        <a href="mailto:your@email.edu" class="btn btn-ghost">Get in touch</a>
+        <a href={`mailto:${contact.email}`} class="btn btn-ghost">Get in touch</a>
       </div>
     </div>
     <div class="avatar">
-      <!-- Swap initials for your photo:
-           <img src="/photos/profile.jpg" alt="Nazmus Sakib" /> -->
-      NS
+      {hero.photo
+        ? <img src={hero.photo} alt={hero.name} />
+        : "NS"}
     </div>
   </div>
 </section>

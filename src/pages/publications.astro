@@ -1,10 +1,11 @@
 ---
 /**
  * Layout only — don't edit this file to add papers.
- * Add papers in: src/data/publications.js
+ * Add papers in: src/data/publications.json (or via the /admin CMS portal)
  */
 import Base from '../layouts/Base.astro';
-import { publications } from '../data/publications.js';
+import publicationsData from '../data/publications.json';
+const publications = publicationsData.years;
 ---
 <Base title="Publications — Md. Nazmus Sakib">
 <style>

@@ -1,0 +1,57 @@
+---
+/**
+ * Layout only — don't edit this file to add posts.
+ * Add posts in: src/content/blog/*.md (or via the /admin CMS portal)
+ */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+<Base title="Blog — Md. Nazmus Sakib" description="Personal posts and photographs">
+<style>
+  .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .post-card { display: block; text-decoration: none; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-surface); transition: transform 0.2s, border-color 0.15s; }
+  .post-card:hover { transform: translateY(-3px); border-color: var(--border-hover); }
+  .post-cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--bg-muted); }
+  .post-body { padding: 18px 20px; }
+  .post-date { font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.04em; text-transform: uppercase; }
+  .post-title { font-family: var(--font-display); font-size: 1.1rem; margin: 6px 0 8px; }
+  .post-excerpt { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+  .post-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+  @media (max-width: 640px) { .post-grid { grid-template-columns: 1fr; } }
+</style>
+
+<div class="container">
+  <div class="page-hero">
+    <p class="section-eyebrow">Blog</p>
+    <h1>Posts & photographs</h1>
+    <p style="max-width:480px;font-size:15px;margin-top:12px;">
+      Research reflections, travel notes, and personal photography — updated whenever I have something worth writing down.
+    </p>
+  </div>
+
+  <div class="post-grid">
+    {posts.map(post => (
+      <a href={`/blog/${post.slug}`} class="post-card">
+        {post.data.cover && <img src={post.data.cover} alt={post.data.title} class="post-cover" />}
+        <div class="post-body">
+          <div class="post-date">
+            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
+          <h2 class="post-title">{post.data.title}</h2>
+          <p class="post-excerpt">{post.data.excerpt}</p>
+          {post.data.tags.length > 0 && (
+            <div class="post-tags">
+              {post.data.tags.map(t => <span class="tag">{t}</span>)}
+            </div>
+          )}
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+</Base>

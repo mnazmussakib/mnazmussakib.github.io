@@ -4,32 +4,35 @@
   --font-body: 'DM Sans', sans-serif;
   --font-display: 'Lora', serif;
 
-  --amber-50:  #FAEEDA;
-  --amber-100: #FAC775;
-  --amber-200: #EF9F27;
-  --amber-600: #854F0B;
-  --amber-900: #412402;
+  /* Blue A — "sky": primary accent (buttons, links, nav, hero) */
+  --amber-50:  #E7F2FC;
+  --amber-100: #C3E1F7;
+  --amber-200: #6FB6E8;
+  --amber-600: #1D5C8A;
+  --amber-900: #0B2E45;
 
-  --teal-50:  #E1F5EE;
-  --teal-400: #1D9E75;
-  --teal-600: #0F6E56;
+  /* Blue B — "periwinkle": secondary accent (badges, status) */
+  --teal-50:  #EAEDFB;
+  --teal-400: #6B7FD1;
+  --teal-600: #3B4A9E;
 
-  --coral-50:  #FAECE7;
-  --coral-600: #993C1D;
+  /* Coral/purple fold into the same two blues above */
+  --coral-50:  #E7F2FC;
+  --coral-600: #1D5C8A;
 
-  --purple-50:  #EEEDFE;
-  --purple-600: #534AB7;
+  --purple-50:  #EAEDFB;
+  --purple-600: #3B4A9E;
 
-  --text-primary:   #1a1916;
-  --text-secondary: #5a5751;
-  --text-tertiary:  #9a9690;
+  --text-primary:   #14181e;
+  --text-secondary: #4d5561;
+  --text-tertiary:  #8b95a3;
 
-  --bg-page:    #faf9f6;
+  --bg-page:    #f7f9fc;
   --bg-surface: #ffffff;
-  --bg-muted:   #f3f1ec;
+  --bg-muted:   #eef2f7;
 
-  --border:       rgba(30,25,20,0.10);
-  --border-hover: rgba(30,25,20,0.20);
+  --border:       rgba(20,30,45,0.10);
+  --border-hover: rgba(20,30,45,0.20);
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -72,9 +75,9 @@ a  { color: inherit; text-decoration: none; }
 }
 
 .badge-amber { background: var(--amber-50); color: var(--amber-600); border-color: var(--amber-100); }
-.badge-teal  { background: var(--teal-50);  color: var(--teal-600);  border-color: #9FE1CB; }
-.badge-coral { background: var(--coral-50); color: var(--coral-600); border-color: #F5C4B3; }
-.badge-purple{ background: var(--purple-50);color: var(--purple-600);border-color: #CECBF6; }
+.badge-teal  { background: var(--teal-50);  color: var(--teal-600);  border-color: #CDD3F2; }
+.badge-coral { background: var(--coral-50); color: var(--coral-600); border-color: var(--amber-100); }
+.badge-purple{ background: var(--purple-50);color: var(--purple-600);border-color: #CDD3F2; }
 
 .section-eyebrow {
   font-family: var(--font-body);

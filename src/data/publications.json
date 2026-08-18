@@ -1,0 +1,44 @@
+{
+  "years": [
+    {
+      "year": "2025",
+      "entries": [
+        {
+          "title": "Title of your CHI 2025 paper",
+          "authors": "Sakib, M. N., Co-author, A., Co-author, B.",
+          "venue": "ACM CHI 2025",
+          "type": "Full paper",
+          "badge": "badge-amber",
+          "pdf": "#",
+          "code": "#",
+          "talk": null
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "entries": [
+        {
+          "title": "Title of your CSCW 2024 workshop paper",
+          "authors": "Sakib, M. N., Co-author, C.",
+          "venue": "CSCW 2024 Workshop on [Workshop Name]",
+          "type": "Workshop paper",
+          "badge": "badge-teal",
+          "pdf": "#",
+          "code": null,
+          "talk": null
+        },
+        {
+          "title": "Another paper or preprint",
+          "authors": "Sakib, M. N., et al.",
+          "venue": "arXiv preprint",
+          "type": "Preprint",
+          "badge": null,
+          "pdf": "#",
+          "code": "#",
+          "talk": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,6 @@
-# Ignore the contents of the _site directory
-_site/
-
-# Ignore the Gemfile that is generated
-Gemfile.lock
+# Astro build output & generated types
+dist/
+.astro/
 
 # Ingore files created by npm
 node_modules

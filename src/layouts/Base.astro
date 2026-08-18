@@ -1,4 +1,7 @@
 ---
+import home from '../data/home.json';
+const { contact } = home;
+
 export interface Props {
   title?: string;
   description?: string;
@@ -21,7 +24,7 @@ const currentPath = Astro.url.pathname;
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(250,249,246,0.92);
+      background: rgba(247,249,252,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -107,6 +110,7 @@ const currentPath = Astro.url.pathname;
         <li><a href="/research" class={currentPath.startsWith("/research") ? "active" : ""}>Research</a></li>
         <li><a href="/publications" class={currentPath.startsWith("/pub") ? "active" : ""}>Publications</a></li>
         <li><a href="/life" class={currentPath.startsWith("/life") ? "active" : ""}>Life</a></li>
+        <li><a href="/blog" class={currentPath.startsWith("/blog") ? "active" : ""}>Blog</a></li>
         <li><a href="/files/cv.pdf" target="_blank">CV</a></li>
       </ul>
     </div>
@@ -120,10 +124,10 @@ const currentPath = Astro.url.pathname;
     <div class="footer-inner">
       <div class="footer-left">Made with curiosity & coffee — Baltimore, MD</div>
       <div class="footer-right">
-        <a href="mailto:your@email.edu">Email</a>
-        <a href="https://github.com/mnazmussakib" target="_blank">GitHub</a>
-        <a href="https://scholar.google.com" target="_blank">Scholar</a>
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href={`mailto:${contact.email}`}>Email</a>
+        <a href={contact.github} target="_blank">GitHub</a>
+        <a href={contact.scholar} target="_blank">Scholar</a>
+        <a href={contact.linkedin} target="_blank">LinkedIn</a>
       </div>
     </div>
   </footer>

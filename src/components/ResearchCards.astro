@@ -1,49 +1,18 @@
 ---
 /**
- * EDIT HERE:
- * - title, description, tags for each card
- * - icon (any emoji works), icon background color (use CSS vars from global.css)
- * - href anchor must match the id in research.astro (e.g. #teaming)
+ * Homepage summary cards — sourced from src/content/research/*.md
+ * (same content used by the full /research page). Edit projects there,
+ * or via the /admin CMS portal.
  */
+import { getCollection } from 'astro:content';
 
-const projects = [
-  {
-    href: "/research#teaming",
-    icon: "🤝",
-    iconBg: "var(--amber-50)",
-    iconColor: "var(--amber-600)",
-    title: "Human-AI teaming",
-    desc: "How people and AI collaborate on complex, high-stakes tasks — and where that breaks down.",
-    tags: [{ label: "CHI", badge: "badge-amber" }, { label: "mixed-methods" }],
-  },
-  {
-    href: "/research#transparency",
-    icon: "🔍",
-    iconBg: "var(--teal-50)",
-    iconColor: "var(--teal-600)",
-    title: "AI transparency",
-    desc: "Designing explanations that build appropriate trust without overwhelming the user.",
-    tags: [{ label: "XAI", badge: "badge-teal" }, { label: "UX research" }],
-  },
-  {
-    href: "/research#inclusive",
-    icon: "💛",
-    iconBg: "var(--coral-50)",
-    iconColor: "var(--coral-600)",
-    title: "Inclusive interfaces",
-    desc: "Participatory design methods for AI tools with and for underserved communities.",
-    tags: [{ label: "PD", badge: "badge-coral" }, { label: "accessibility" }],
-  },
-  {
-    href: "/research#mental-models",
-    icon: "🧠",
-    iconBg: "var(--purple-50)",
-    iconColor: "var(--purple-600)",
-    title: "Mental models of AI",
-    desc: "How lay users form, update, and act on their understanding of AI behavior.",
-    tags: [{ label: "cognitive", badge: "badge-purple" }, { label: "HCI" }],
-  },
-];
+const theme = {
+  'blue-a': { bg: 'var(--amber-50)', color: 'var(--amber-600)', badge: 'badge-amber' },
+  'blue-b': { bg: 'var(--teal-50)',  color: 'var(--teal-600)',  badge: 'badge-teal'  },
+};
+
+const projectsRaw = await getCollection('research');
+const projects = projectsRaw.sort((a, b) => a.data.order - b.data.order);
 ---
 <style>
   .research-section { padding: 56px 0; border-bottom: 1px solid var(--border); }
@@ -74,17 +43,19 @@ const projects = [
     <a href="/research">See all projects →</a>
   </div>
   <div class="project-grid">
-    {projects.map(p => (
-      <a href={p.href} class="project-card">
-        <div class="project-icon" style={`background:${p.iconBg};color:${p.iconColor};`}>{p.icon}</div>
-        <h3>{p.title}</h3>
-        <p>{p.desc}</p>
-        <div class="project-tags">
-          {p.tags.map(t => (
-            <span class={`tag ${t.badge ?? ''}`}>{t.label}</span>
-          ))}
-        </div>
-      </a>
-    ))}
+    {projects.map(entry => {
+      const t = theme[entry.data.theme];
+      return (
+        <a href={`/research#${entry.slug}`} class="project-card">
+          <div class="project-icon" style={`background:${t.bg};color:${t.color};`}>{entry.data.icon}</div>
+          <h3>{entry.data.title}</h3>
+          <p>{entry.data.summary}</p>
+          <div class="project-tags">
+            <span class={`tag ${t.badge}`}>{entry.data.tagLabel}</span>
+            {entry.data.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        </a>
+      );
+    })}
   </div>
 </section>

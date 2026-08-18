@@ -1,0 +1,175 @@
+backend:
+  name: github
+  repo: mnazmussakib/mnazmussakib.github.io
+  branch: master
+  # One-time setup required — see CMS_SETUP.md in the repo root.
+  # base_url must point at your deployed OAuth proxy, e.g.:
+  # base_url: https://your-oauth-proxy.vercel.app
+  base_url: https://REPLACE-WITH-YOUR-OAUTH-PROXY-URL
+
+# Lets you test the CMS locally without any OAuth setup:
+#   npm run dev            (in one terminal)
+#   npx decap-server        (in another terminal)
+# then visit http://localhost:4321/admin/#/ and tick "Local backend" in config UI,
+# or just run with local_backend: true below while testing.
+local_backend: true
+
+media_folder: "public/photos"
+public_folder: "/photos"
+
+collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "src/data/home.json"
+        label: "Hero, About & News"
+        name: "home"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: object
+            fields:
+              - { label: "Pill text", name: "pill", widget: string }
+              - { label: "Name", name: "name", widget: string }
+              - { label: "Role / title line", name: "role", widget: string }
+              - { label: "Bio", name: "bio", widget: text }
+              - { label: "Photo", name: "photo", widget: image, required: false, hint: "Leave empty to show initials instead" }
+          - label: "Contact & Social Links"
+            name: "contact"
+            widget: object
+            fields:
+              - { label: "Email", name: "email", widget: string }
+              - { label: "GitHub URL", name: "github", widget: string }
+              - { label: "Google Scholar URL", name: "scholar", widget: string }
+              - { label: "LinkedIn URL", name: "linkedin", widget: string }
+              - { label: "Twitter/X URL", name: "twitter", widget: string }
+          - label: "About"
+            name: "about"
+            widget: object
+            fields:
+              - label: "Bio paragraphs"
+                name: "paragraphs"
+                widget: list
+                field: { label: "Paragraph", name: "paragraph", widget: text }
+              - label: "Skills / tags"
+                name: "skills"
+                widget: list
+                field: { label: "Skill", name: "skill", widget: string }
+          - label: "News items"
+            name: "news"
+            widget: list
+            summary: "{{fields.date}} — {{fields.text}}"
+            fields:
+              - { label: "Date", name: "date", widget: string, hint: "e.g. May 2025" }
+              - { label: "Text", name: "text", widget: string }
+              - label: "Badge color"
+                name: "badge"
+                widget: select
+                options: ["badge-amber", "badge-teal", "badge-purple"]
+                default: "badge-amber"
+              - { label: "Label", name: "label", widget: string, hint: "e.g. publication, talk, update" }
+
+  - name: "publications"
+    label: "Publications"
+    files:
+      - file: "src/data/publications.json"
+        label: "Publications by Year"
+        name: "publications"
+        fields:
+          - label: "Years"
+            name: "years"
+            widget: list
+            summary: "{{fields.year}}"
+            fields:
+              - { label: "Year", name: "year", widget: string }
+              - label: "Entries"
+                name: "entries"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: string }
+                  - { label: "Authors", name: "authors", widget: string }
+                  - { label: "Venue", name: "venue", widget: string }
+                  - { label: "Type", name: "type", widget: string, hint: "e.g. Full paper, Workshop paper, Preprint" }
+                  - label: "Badge color"
+                    name: "badge"
+                    widget: select
+                    options: ["badge-amber", "badge-teal", "badge-coral", "badge-purple"]
+                    required: false
+                  - { label: "PDF link", name: "pdf", widget: string, required: false }
+                  - { label: "Code link", name: "code", widget: string, required: false }
+                  - { label: "Talk link", name: "talk", widget: string, required: false }
+
+  - name: "research"
+    label: "Research Projects"
+    folder: "src/content/research"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Order", name: "order", widget: number, hint: "Controls display order, lower first" }
+      - { label: "Title", name: "title", widget: string }
+      - { label: "Icon (emoji)", name: "icon", widget: string }
+      - label: "Color theme"
+        name: "theme"
+        widget: select
+        options: ["blue-a", "blue-b"]
+        default: "blue-a"
+      - label: "Status"
+        name: "status"
+        widget: select
+        options: ["active", "complete"]
+        default: "active"
+      - { label: "Primary tag label", name: "tagLabel", widget: string, hint: "e.g. CHI, XAI, PD" }
+      - label: "Other tags"
+        name: "tags"
+        widget: list
+        field: { label: "Tag", name: "tag", widget: string }
+      - { label: "Homepage card summary", name: "summary", widget: text }
+      - label: "Related publications"
+        name: "pubs"
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "Title", name: "title", widget: string }
+          - { label: "Venue", name: "venue", widget: string }
+          - { label: "PDF link", name: "pdf", widget: string, required: false }
+          - { label: "Code link", name: "code", widget: string, required: false }
+          - { label: "Talk link", name: "talk", widget: string, required: false }
+      - { label: "Full description", name: "body", widget: markdown }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: string }
+      - { label: "Date", name: "date", widget: datetime }
+      - { label: "Excerpt", name: "excerpt", widget: text }
+      - { label: "Cover photo", name: "cover", widget: image, required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: list
+        field: { label: "Tag", name: "tag", widget: string }
+      - { label: "Post body", name: "body", widget: markdown }
+
+  - name: "life_photos"
+    label: "Life Photos"
+    files:
+      - file: "src/data/photos.json"
+        label: "Photo Gallery"
+        name: "photos"
+        fields:
+          - label: "Photos"
+            name: "photos"
+            widget: list
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Image", name: "src", widget: image }
+              - { label: "Caption", name: "caption", widget: string }
+              - { label: "Location", name: "location", widget: string }
+              - label: "Category"
+                name: "category"
+                widget: select
+                options: ["travel", "everyday", "people"]

@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "pill": "Human-centered AI",
+    "name": "Md. Nazmus Sakib",
+    "role": "PhD Researcher · Human-AI Interaction · [Your University]",
+    "bio": "I design, build, and study AI systems that genuinely work with people. My research asks: how do humans make sense of AI, and how can we design interactions that feel trustworthy, transparent, and human?",
+    "photo": ""
+  },
+  "about": {
+    "paragraphs": [
+      "I'm a PhD student passionate about making AI systems that genuinely work for the people using them. Before grad school, I studied [background]. I'm advised by Prof. [Advisor] at [University] and affiliated with [Lab Name].",
+      "Outside the lab I love traveling, photography, and anything that gets me outside."
+    ],
+    "skills": ["user studies", "qualitative research", "Python", "prototyping", "participatory design"]
+  },
+  "contact": {
+    "email": "your@email.edu",
+    "github": "https://github.com/mnazmussakib",
+    "scholar": "https://scholar.google.com",
+    "linkedin": "https://linkedin.com",
+    "twitter": "https://twitter.com"
+  },
+  "news": [
+    { "date": "May 2025", "text": "Paper accepted at CHI 2025", "badge": "badge-teal", "label": "publication" },
+    { "date": "Mar 2025", "text": "Talk at [Conference Name]", "badge": "badge-purple", "label": "talk" },
+    { "date": "Jan 2025", "text": "Started research internship at [Lab]", "badge": "badge-amber", "label": "update" },
+    { "date": "Sep 2024", "text": "Workshop paper at CSCW 2024", "badge": "badge-teal", "label": "publication" },
+    { "date": "Aug 2024", "text": "Joined [Lab Name] as PhD student", "badge": "badge-amber", "label": "update" }
+  ]
+}

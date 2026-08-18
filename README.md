@@ -26,48 +26,50 @@ npm run preview   # preview the build locally
 | `/research` | `src/pages/research.astro` | Full project descriptions |
 | `/publications` | `src/pages/publications.astro` | Paper list |
 | `/life` | `src/pages/life.astro` | Photo gallery — travel & interests |
+| `/blog` | `src/pages/blog/index.astro` | Blog listing |
+| `/blog/[slug]` | `src/pages/blog/[...slug].astro` | Individual post |
+| `/admin` | `public/admin/` | Content editing portal (Decap CMS) |
 
-## Customisation checklist
+## Editing content
 
-### Personal info
-- [ ] `src/layouts/Base.astro` — update email, GitHub, Twitter, LinkedIn links in the footer
-- [ ] `src/pages/index.astro` — fill in your university, advisor, lab, bio, and news items
-- [ ] Replace `NS` initials in the avatar with `<img src="/photos/profile.jpg" />` once you add your photo
+Everything below can be edited either by hand-editing the file and pushing, **or** through the `/admin` portal (see [CMS_SETUP.md](CMS_SETUP.md) for the one-time login setup — try it locally first with `npx decap-server`, no setup needed).
 
-### Research
-- [ ] `src/pages/research.astro` — update project descriptions and paper titles
-- [ ] `src/pages/publications.astro` — add your real papers to the `publications` array
+| What | File(s) |
+|------|---------|
+| Hero, about, news, contact links | `src/data/home.json` |
+| Publications | `src/data/publications.json` |
+| Research projects | `src/content/research/*.md` (one file per project) |
+| Blog posts | `src/content/blog/*.md` (one file per post) |
+| Life photo gallery | `src/data/photos.json` |
+| Photo/image files | `public/photos/` |
+| CV | `public/files/cv.pdf` (nav link works automatically) |
 
-### Photos (life page)
-1. Drop images into `public/photos/` (any format: jpg, png, webp)
-2. Open `src/pages/life.astro`
-3. Add entries to the `photos` array at the top:
-   ```js
-   { src: "/photos/tokyo.jpg", caption: "Cherry blossom season", location: "Tokyo, Japan", category: "travel" },
-   ```
-4. Push to GitHub — the page auto-updates
-
-Available categories: `travel`, `everyday`, `people` (or add your own in the `categories` array)
-
-### CV
-- Drop your CV PDF at `public/files/cv.pdf` — the nav link will work automatically
+Adding a new blog post or research project: create a new `.md` file in the relevant `src/content/` folder (copy an existing one for the frontmatter shape) and push — Astro picks it up automatically, no other file needs editing.
 
 ### Deployment
-The GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys on every push to `master`.
+The GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys on every push to `master` — including changes made through `/admin`, since the portal commits directly to this repo.
 
 **One-time setup in your GitHub repo settings:**
 1. Go to Settings → Pages
 2. Set Source to **GitHub Actions**
 3. Push — first deploy happens automatically
 
-## Color palette (warm amber)
+## Color palette (two-tone blue)
 
-The site uses an amber accent throughout. To change it, update the CSS variables in `src/styles/global.css`:
+The site uses two light-blue families as its accent throughout — "sky" (primary: buttons, links, nav) and "periwinkle" (secondary: badges, status). To change them, update the CSS variables in `src/styles/global.css`:
 
 ```css
---amber-50:  #FAEEDA;   /* light backgrounds */
---amber-100: #FAC775;   /* borders, hover */
---amber-200: #EF9F27;   /* buttons, accents */
---amber-600: #854F0B;   /* text on light */
---amber-900: #412402;   /* dark text */
+/* Blue A — "sky": primary accent */
+--amber-50:  #E7F2FC;
+--amber-100: #C3E1F7;
+--amber-200: #6FB6E8;
+--amber-600: #1D5C8A;
+--amber-900: #0B2E45;
+
+/* Blue B — "periwinkle": secondary accent */
+--teal-50:  #EAEDFB;
+--teal-400: #6B7FD1;
+--teal-600: #3B4A9E;
 ```
+
+(Variable names like `--amber-*`/`--teal-*` are kept from the original template to minimize churn — they now hold blue values, not amber/teal ones.)

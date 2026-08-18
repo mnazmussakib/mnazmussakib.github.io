@@ -1,10 +1,11 @@
 ---
 /**
  * Layout only — don't edit this file to add photos.
- * Add photos in: src/data/photos.js
+ * Add photos in: src/data/photos.json (or via the /admin CMS portal)
  */
 import Base from '../layouts/Base.astro';
-import { photos } from '../data/photos.js';
+import photosData from '../data/photos.json';
+const photos = photosData.photos;
 
 const categories = ["all", "travel", "everyday", "people"];
 ---
