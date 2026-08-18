@@ -1,10 +1,10 @@
 ---
 /**
- * Content comes from src/data/home.json (news + about sections) —
+ * Content comes from src/data/home.json (news + contact sections) —
  * edit there directly, or through the /admin CMS portal.
  */
 import home from '../data/home.json';
-const { news, about } = home;
+const { news, contact } = home;
 ---
 <style>
   .news-about { padding: 56px 0; border-bottom: 1px solid var(--border); }
@@ -14,7 +14,8 @@ const { news, about } = home;
   .news-date { font-size: 12px; color: var(--text-tertiary); min-width: 75px; font-family: var(--font-body); }
   .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
   .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
-  .about-bio { font-size: 14px; margin-bottom: 14px; }
+  .contact-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .contact-list a { font-size: 14px; color: var(--amber-600); text-decoration: underline; width: fit-content; }
   .life-link { font-size: 13px; }
   .life-link a { color: var(--amber-600); text-decoration: underline; }
   @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
@@ -40,11 +41,15 @@ const { news, about } = home;
       </div>
     </div>
 
-    <!-- About column -->
+    <!-- Contact column -->
     <div>
-      <p class="section-eyebrow">About</p>
-      <h2 style="margin-bottom:16px;">A bit about me</h2>
-      {about.paragraphs.map(p => <p class="about-bio">{p}</p>)}
+      <p class="section-eyebrow">Contact</p>
+      <h2 style="margin-bottom:16px;">Get in touch</h2>
+      <div class="contact-list">
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <a href={contact.linkedin} target="_blank">LinkedIn</a>
+        <a href={contact.scholar} target="_blank">Google Scholar</a>
+      </div>
       <p class="life-link">
         See more on my <a href="/life">life page</a> →
       </p>

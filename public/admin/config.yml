@@ -35,7 +35,10 @@ collections:
                 field: { label: "Pill", name: "pill_item", widget: string }
               - { label: "Name", name: "name", widget: string }
               - { label: "Role / title line", name: "role", widget: string }
-              - { label: "Bio", name: "bio", widget: text }
+              - label: "Bio paragraphs"
+                name: "paragraphs"
+                widget: list
+                field: { label: "Paragraph", name: "paragraph", widget: text }
               - { label: "Photo", name: "photo", widget: image, required: false, hint: "Leave empty to show initials instead" }
           - label: "Contact & Social Links"
             name: "contact"
@@ -44,14 +47,6 @@ collections:
               - { label: "Email", name: "email", widget: string }
               - { label: "Google Scholar URL", name: "scholar", widget: string }
               - { label: "LinkedIn URL", name: "linkedin", widget: string }
-          - label: "About"
-            name: "about"
-            widget: object
-            fields:
-              - label: "Bio paragraphs"
-                name: "paragraphs"
-                widget: list
-                field: { label: "Paragraph", name: "paragraph", widget: text }
           - label: "News items"
             name: "news"
             widget: list

@@ -4,7 +4,7 @@
  * edit there directly, or through the /admin CMS portal.
  */
 import home from '../data/home.json';
-const { hero, contact } = home;
+const { hero } = home;
 ---
 <style>
   .hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
@@ -19,18 +19,8 @@ const { hero, contact } = home;
   .hero-pill::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--amber-200); }
   .hero h1 { margin-bottom: 6px; }
   .hero-role { font-size: 15px; color: var(--text-secondary); margin-bottom: 20px; font-family: var(--font-body); }
-  .hero-bio { font-size: 15px; line-height: 1.8; max-width: 520px; margin-bottom: 32px; }
-  .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: var(--font-body); font-size: 13px; font-weight: 500;
-    padding: 9px 20px; border-radius: var(--radius-md); border: 1px solid var(--border);
-    cursor: pointer; transition: all 0.15s; text-decoration: none;
-  }
-  .btn-primary { background: var(--amber-200); color: var(--amber-900); border-color: var(--amber-200); }
-  .btn-primary:hover { background: var(--amber-100); }
-  .btn-ghost { background: transparent; color: var(--text-secondary); }
-  .btn-ghost:hover { background: var(--bg-muted); color: var(--text-primary); border-color: var(--border-hover); }
+  .hero-bio { font-size: 15px; line-height: 1.8; max-width: 520px; margin-bottom: 16px; }
+  .hero-bio:last-of-type { margin-bottom: 0; }
   .avatar {
     width: 160px; height: 160px; border-radius: var(--radius-xl);
     background: var(--amber-50); border: 1px solid var(--amber-100);
@@ -55,12 +45,7 @@ const { hero, contact } = home;
       </div>
       <h1>{hero.name}</h1>
       <p class="hero-role">{hero.role}</p>
-      <p class="hero-bio">{hero.bio}</p>
-      <div class="hero-ctas">
-        <a href="/research" class="btn btn-primary">View my research →</a>
-        <a href={contact.scholar} target="_blank" class="btn btn-primary">Google Scholar →</a>
-        <a href={`mailto:${contact.email}`} class="btn btn-ghost">Get in touch</a>
-      </div>
+      {hero.paragraphs.map(p => <p class="hero-bio">{p}</p>)}
     </div>
     <div class="avatar">
       {hero.photo
