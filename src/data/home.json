@@ -16,7 +16,7 @@
     "linkedin": "https://linkedin.com"
   },
   "news": [
-    { "date": "May 2025", "text": "Paper accepted at CHI 2025", "badge": "badge-teal", "label": "publication" },
+    { "date": " 2025", "text": "Received Best Paper Award", "badge": "badge-teal", "label": "publication" },
     { "date": "Mar 2025", "text": "Talk at [Conference Name]", "badge": "badge-purple", "label": "talk" },
     { "date": "Jan 2025", "text": "Started research internship at [Lab]", "badge": "badge-amber", "label": "update" },
     { "date": "Sep 2024", "text": "Workshop paper at CSCW 2024", "badge": "badge-teal", "label": "publication" },
