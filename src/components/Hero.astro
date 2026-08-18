@@ -8,21 +8,27 @@ const { hero } = home;
 ---
 <style>
   .hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
-  .hero-inner { display: grid; grid-template-columns: 1fr 180px; gap: 48px; align-items: center; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 240px; gap: 48px; align-items: center; }
   .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
   .hero-pill {
     display: inline-flex; align-items: center; gap: 6px;
     font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
     color: var(--amber-600); background: var(--amber-50); border: 1px solid var(--amber-100);
     border-radius: 99px; padding: 4px 14px;
+    opacity: 0;
+    animation: pill-in 0.5s ease forwards;
   }
   .hero-pill::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--amber-200); }
+  @keyframes pill-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .hero h1 { margin-bottom: 6px; }
   .hero-role { font-size: 15px; color: var(--text-secondary); margin-bottom: 20px; font-family: var(--font-body); }
   .hero-bio { font-size: 15px; line-height: 1.8; max-width: 520px; margin-bottom: 16px; }
   .hero-bio:last-of-type { margin-bottom: 0; }
   .avatar {
-    width: 160px; height: 160px; border-radius: var(--radius-xl);
+    width: 220px; height: 220px; border-radius: var(--radius-xl);
     background: var(--amber-50); border: 1px solid var(--amber-100);
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display); font-size: 3rem; color: var(--amber-600); justify-self: end;
@@ -39,8 +45,8 @@ const { hero } = home;
   <div class="hero-inner">
     <div>
       <div class="hero-pills">
-        {(Array.isArray(hero.pill) ? hero.pill : [hero.pill]).map(p => (
-          <span class="hero-pill">{p}</span>
+        {(Array.isArray(hero.pill) ? hero.pill : [hero.pill]).map((p, i) => (
+          <span class="hero-pill" style={`animation-delay: ${i * 150}ms`}>{p}</span>
         ))}
       </div>
       <h1>{hero.name}</h1>

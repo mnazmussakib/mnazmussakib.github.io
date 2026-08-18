@@ -2,11 +2,11 @@
   "hero": {
     "pill": ["Human-centered AI", "Social Computing"],
     "name": "Md Nazmus Sakib",
-    "role": "PhD Researcher · Human-AI Interaction · UMBC",
+    "role": "PhD Student",
     "paragraphs": [
-      "I design, build, and study AI systems that genuinely work with people. My research asks: how do humans make sense of AI, and how can we design interactions that feel trustworthy, transparent, and human?",
-      "I'm a PhD student advised by Prof. [Advisor] at [University], affiliated with [Lab Name]. Before grad school, I studied [background].",
-      "Outside the lab I love traveling, photography, and anything that gets me outside."
+      "I am a fourth-year Ph.D. student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research lies at the intersection of human-centered AI and social computing. I design, build, and study AI-assisted systems that support learning, reflection, and positive user experiences.",
+      "My current research examines how asynchronous AI interview systems can be designed to improve applicant agency, trust, and the overall recruitment experience. I also explore how AI-assisted systems can support reflection, learning, and collaboration.",
+      "I am advised by Dr. Sanorita Dey and am a member of the Social Intelligence Lab."
     ],
     "photo": ""
   },
