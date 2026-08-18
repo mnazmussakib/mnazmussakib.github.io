@@ -9,8 +9,16 @@ const { news, contact } = home;
 <style>
   .news-about { padding: 56px 0; border-bottom: 1px solid var(--border); }
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 160px; }
-  .news-item { display: flex; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .news-item {
+    display: flex; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--border); align-items: baseline;
+    opacity: 0;
+    animation: news-in 0.5s ease forwards;
+  }
   .news-item:last-child { border-bottom: none; }
+  @keyframes news-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .news-date { font-size: 12px; color: var(--text-tertiary); min-width: 75px; font-family: var(--font-body); }
   .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
   .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
@@ -29,8 +37,8 @@ const { news, contact } = home;
       <p class="section-eyebrow">News</p>
       <h2 style="margin-bottom:20px;">Recent updates</h2>
       <div>
-        {news.map(item => (
-          <div class="news-item">
+        {news.map((item, i) => (
+          <div class="news-item" style={`animation-delay: ${i * 120}ms`}>
             <span class="news-date">{item.date}</span>
             <span class="news-text">
               {item.text}
