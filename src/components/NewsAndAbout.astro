@@ -15,7 +15,6 @@ const { news, about } = home;
   .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
   .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
   .about-bio { font-size: 14px; margin-bottom: 14px; }
-  .skills { display: flex; flex-wrap: wrap; gap: 6px; }
   .life-link { font-size: 13px; }
   .life-link a { color: var(--amber-600); text-decoration: underline; }
   @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
@@ -46,12 +45,9 @@ const { news, about } = home;
       <p class="section-eyebrow">About</p>
       <h2 style="margin-bottom:16px;">A bit about me</h2>
       {about.paragraphs.map(p => <p class="about-bio">{p}</p>)}
-      <p class="life-link" style="margin-bottom:14px;">
-        See more on my <a href="/life">life page</a> and <a href="/blog">blog</a> →
+      <p class="life-link">
+        See more on my <a href="/life">life page</a> →
       </p>
-      <div class="skills">
-        {about.skills.map(s => <span class="tag">{s}</span>)}
-      </div>
     </div>
 
   </div>

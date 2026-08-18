@@ -1,12 +1,12 @@
 {
   "years": [
     {
-      "year": "2025",
+      "year": "2026",
       "entries": [
         {
-          "title": "Title of your CHI 2025 paper",
+          "title": "Expecting Too Much, Getting Too Little:",
           "authors": "Sakib, M. N., Co-author, A., Co-author, B.",
-          "venue": "ACM CHI 2025",
+          "venue": "ACM CSCW 2026",
           "type": "Full paper",
           "badge": "badge-amber",
           "pdf": "#",

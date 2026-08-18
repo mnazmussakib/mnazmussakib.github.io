@@ -29,7 +29,10 @@ collections:
             name: "hero"
             widget: object
             fields:
-              - { label: "Pill text", name: "pill", widget: string }
+              - label: "Pill text"
+                name: "pill"
+                widget: list
+                field: { label: "Pill", name: "pill_item", widget: string }
               - { label: "Name", name: "name", widget: string }
               - { label: "Role / title line", name: "role", widget: string }
               - { label: "Bio", name: "bio", widget: text }
@@ -39,10 +42,8 @@ collections:
             widget: object
             fields:
               - { label: "Email", name: "email", widget: string }
-              - { label: "GitHub URL", name: "github", widget: string }
               - { label: "Google Scholar URL", name: "scholar", widget: string }
               - { label: "LinkedIn URL", name: "linkedin", widget: string }
-              - { label: "Twitter/X URL", name: "twitter", widget: string }
           - label: "About"
             name: "about"
             widget: object
@@ -51,10 +52,6 @@ collections:
                 name: "paragraphs"
                 widget: list
                 field: { label: "Paragraph", name: "paragraph", widget: text }
-              - label: "Skills / tags"
-                name: "skills"
-                widget: list
-                field: { label: "Skill", name: "skill", widget: string }
           - label: "News items"
             name: "news"
             widget: list

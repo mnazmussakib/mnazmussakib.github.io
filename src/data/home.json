@@ -1,8 +1,8 @@
 {
   "hero": {
-    "pill": "Human-centered AI",
-    "name": "Md. Nazmus Sakib",
-    "role": "PhD Researcher · Human-AI Interaction · [Your University]",
+    "pill": ["Human-centered AI", "Social Computing"],
+    "name": "Md Nazmus Sakib",
+    "role": "PhD Researcher · Human-AI Interaction · UMBC",
     "bio": "I design, build, and study AI systems that genuinely work with people. My research asks: how do humans make sense of AI, and how can we design interactions that feel trustworthy, transparent, and human?",
     "photo": ""
   },
@@ -10,15 +10,12 @@
     "paragraphs": [
       "I'm a PhD student passionate about making AI systems that genuinely work for the people using them. Before grad school, I studied [background]. I'm advised by Prof. [Advisor] at [University] and affiliated with [Lab Name].",
       "Outside the lab I love traveling, photography, and anything that gets me outside."
-    ],
-    "skills": ["user studies", "qualitative research", "Python", "prototyping", "participatory design"]
+    ]
   },
   "contact": {
-    "email": "your@email.edu",
-    "github": "https://github.com/mnazmussakib",
-    "scholar": "https://scholar.google.com",
-    "linkedin": "https://linkedin.com",
-    "twitter": "https://twitter.com"
+    "email": "msakib1@email.edu",
+    "scholar": "https://scholar.google.com/citations?user=WEI2SKgAAAAJ&hl=en",
+    "linkedin": "https://linkedin.com"
   },
   "news": [
     { "date": "May 2025", "text": "Paper accepted at CHI 2025", "badge": "badge-teal", "label": "publication" },
