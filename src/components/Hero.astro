@@ -16,12 +16,12 @@ const { hero } = home;
     color: var(--amber-600); background: var(--amber-50); border: 1px solid var(--amber-100);
     border-radius: 99px; padding: 4px 14px;
     opacity: 0;
-    animation: pill-in 0.5s ease forwards;
+    animation: pill-in 3s ease-in-out infinite;
   }
   .hero-pill::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--amber-200); }
   @keyframes pill-in {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
+    0%, 100% { opacity: 0; transform: translateY(6px); }
+    20%, 80% { opacity: 1; transform: translateY(0); }
   }
   .hero h1 { margin-bottom: 6px; }
   .hero-role { font-size: 15px; color: var(--text-secondary); margin-bottom: 20px; font-family: var(--font-body); }
