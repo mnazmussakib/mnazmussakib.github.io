@@ -10,7 +10,7 @@ summary: "How people and AI collaborate on complex, high-stakes tasks — and wh
 pubs:
   - title: "Expecting Too Much, Getting Too Little: Exploring the Challenges and Design Opportunities of Asynchronous AI Interviewers"
     venue: "CSCW 2026"
-    pdf: ""
+    pdf: "/files/Interviewer_CSCW_2026.pdf"
     talk: null
 ---
 

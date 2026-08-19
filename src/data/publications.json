@@ -9,7 +9,7 @@
           "venue": "AIED 2026",
           "type": "Full paper",
           "badge": "badge-amber",
-          "pdf": "#",
+          "pdf": "/files/reflection_AIED_2026.pdf",
           "code": null,
           "talk": null
         },
@@ -29,7 +29,7 @@
           "venue": "ACM CSCW 2026",
           "type": "Full paper",
           "badge": "badge-purple",
-          "pdf": "#",
+          "pdf": "/files/Interviewer_CSCW_2026.pdf",
           "code": null,
           "talk": null
         }

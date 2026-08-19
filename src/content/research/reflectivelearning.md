@@ -8,7 +8,7 @@ summary: ""
 pubs:
   - title: "ReflectEd: Evaluating Reflection-Driven Learning in an AI-Assisted System"
     venue: "AIED 2026"
-    pdf: ""
+    pdf: "/files/reflection_AIED_2026.pdf"
     talk: null
 ---
 
