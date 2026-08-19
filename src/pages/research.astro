@@ -79,12 +79,7 @@ const projects = await Promise.all(
 <div class="container">
   <div class="page-hero">
     <p class="section-eyebrow">Research</p>
-    <h1>What I work on</h1>
-    <p>
-      My work sits at the intersection of HCI, AI, and social science.
-      I use qualitative and quantitative methods to understand how people
-      experience AI — and design better interactions from those insights.
-    </p>
+    <h1>What I am currently working on</h1>
   </div>
 
   {projects.map(({ entry, Content }, i) => (
@@ -94,10 +89,12 @@ const projects = await Promise.all(
         <span class={`proj-status ${entry.data.status === 'active' ? 'status-active' : 'status-complete'}`}>
           {entry.data.status === 'active' ? 'Active' : 'Completed'}
         </span>
-        <div class="proj-tags">
-          <span class={`tag ${themeBadge[entry.data.theme]}`}>{entry.data.tagLabel}</span>
-          {entry.data.tags.map(t => <span class="tag">{t}</span>)}
-        </div>
+        {(entry.data.tagLabel || entry.data.tags.length > 0) && (
+          <div class="proj-tags">
+            {entry.data.tagLabel && <span class={`tag ${themeBadge[entry.data.theme]}`}>{entry.data.tagLabel}</span>}
+            {entry.data.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+        )}
       </div>
       <div class="proj-content">
         <h3>{entry.data.title}</h3>

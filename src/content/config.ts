@@ -8,7 +8,7 @@ const research = defineCollection({
     icon: z.string(),
     theme: z.enum(['blue-a', 'blue-b']).default('blue-a'),
     status: z.enum(['active', 'complete']).default('active'),
-    tagLabel: z.string(),
+    tagLabel: z.string().optional(),
     tags: z.array(z.string()).default([]),
     summary: z.string(),
     pubs: z

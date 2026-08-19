@@ -111,10 +111,11 @@ collections:
         widget: select
         options: ["active", "complete"]
         default: "active"
-      - { label: "Primary tag label", name: "tagLabel", widget: string, hint: "e.g. CHI, XAI, PD" }
+      - { label: "Primary tag label", name: "tagLabel", widget: string, required: false, hint: "e.g. CHI, XAI, PD" }
       - label: "Other tags"
         name: "tags"
         widget: list
+        required: false
         field: { label: "Tag", name: "tag", widget: string }
       - { label: "Homepage card summary", name: "summary", widget: text }
       - label: "Related publications"
