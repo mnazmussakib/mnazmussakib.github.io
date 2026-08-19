@@ -16,10 +16,17 @@
     "linkedin": "https://linkedin.com"
   },
   "news": [
-    { "date": " 2025", "text": "Received Best Paper Award", "badge": "badge-teal", "label": "publication" },
-    { "date": "Mar 2025", "text": "Talk at [Conference Name]", "badge": "badge-purple", "label": "talk" },
-    { "date": "Jan 2025", "text": "Started research internship at [Lab]", "badge": "badge-amber", "label": "update" },
-    { "date": "Sep 2024", "text": "Workshop paper at CSCW 2024", "badge": "badge-teal", "label": "publication" },
-    { "date": "Aug 2024", "text": "Joined [Lab Name] as PhD student", "badge": "badge-amber", "label": "update" }
+    { "date": "Aug 2026", "text": "Our CSCW 2026 paper received the Best Paper Award (Top 1%)", "badge": "badge-amber", "label": "update" },
+    { "date": "Aug 2026", "text": "Reviewed papers for ACM SIGCSE TS 2027", "badge": "badge-teal", "label": "presentation" },
+    { "date": "Jul 2026", "text": "Presented our paper at AIED 2026", "badge": "badge-teal", "label": "presentation" },
+    { "date": "May 2026", "text": "Presented our poster at UMBC COEIT research day", "badge": "badge-teal", "label": "presentation" },
+    { "date": "May 2026", "text": "Selected as a student volunteer for AIED 2026", "badge": "badge-amber", "label": "update" },
+    { "date": "Apr 2026", "text": "Reviewed papers for AIED 2026", "badge": "badge-amber", "label": "update" },
+    { "date": "Mar 2026", "text": "Our paper has been accepted to AIED 2026", "badge": "badge-purple", "label": "paper" },
+    { "date": "Mar 2026", "text": "Our paper has been accepted to CSCW 2026", "badge": "badge-amber", "label": "update" },
+    { "date": "Feb 2026", "text": "Presented our paper at ACM SIGCSE TS 2026", "badge": "badge-teal", "label": "presentation" },
+    { "date": "Jan 2026", "text": "Selected as a student volunteer for ACM SIGCSE TS 2026", "badge": "badge-amber", "label": "update" },
+    { "date": "Dec 2025", "text": "Our paper has been accepted to ACM SIGCSE TS 2026", "badge": "badge-purple", "label": "paper" }
+
   ]
 }
