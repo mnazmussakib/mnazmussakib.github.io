@@ -37,7 +37,12 @@ const { hero } = home;
   .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-xl); }
   @media (max-width: 640px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .avatar { display: none; }
+    .avatar {
+      width: 200px; height: 200px;
+      justify-self: center;
+      order: -1;
+      margin-bottom: 24px;
+    }
   }
 </style>
 
