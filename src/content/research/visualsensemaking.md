@@ -8,7 +8,7 @@ summary: ""
 pubs:
   - title: ""
     venue: ""
-    pdf: "#"
+    pdf: ""
     code: null
     talk: null
 ---
