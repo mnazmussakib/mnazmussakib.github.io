@@ -105,9 +105,9 @@ const projects = await Promise.all(
               <div class="pub-item">
                 <p>{pub.title}</p>
                 <span>{pub.venue}</span>
-                {pub.pdf && <a href={pub.pdf} class="pub-link">PDF →</a>}
-                {pub.code && <a href={pub.code} class="pub-link">Code →</a>}
-                {pub.talk && <a href={pub.talk} class="pub-link">Talk →</a>}
+                {pub.pdf && <a href={pub.pdf} class="pub-link" target="_blank" rel="noopener">PDF →</a>}
+                {pub.code && <a href={pub.code} class="pub-link" target="_blank" rel="noopener">Code →</a>}
+                {pub.talk && <a href={pub.talk} class="pub-link" target="_blank" rel="noopener">Talk →</a>}
               </div>
             ))}
           </div>

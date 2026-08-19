@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+
+const cvPath = "/files/CV_Aug_2026.pdf";
+---
+<Base title="CV — Md. Nazmus Sakib" description="Curriculum vitae">
+<style>
+  .page-hero { padding: 64px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+  .cv-download {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--amber-600);
+    background: var(--amber-50); border: 1px solid var(--amber-100);
+    border-radius: var(--radius-md); padding: 7px 16px; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .cv-download:hover { background: var(--amber-100); }
+  .cv-viewer {
+    width: 100%;
+    height: 85vh;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 56px;
+  }
+</style>
+
+<div class="container">
+  <div class="page-hero">
+    <p class="section-eyebrow">CV</p>
+    <h1 style="margin-bottom: 16px;">Curriculum Vitae</h1>
+    <a href={cvPath} class="cv-download" target="_blank" rel="noopener">Open in new tab →</a>
+  </div>
+
+  <iframe class="cv-viewer" src={cvPath} title="Curriculum Vitae"></iframe>
+</div>
+</Base>

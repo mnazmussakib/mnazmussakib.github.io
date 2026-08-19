@@ -3,11 +3,22 @@
     {
       "year": "2026",
       "entries": [
+                {
+          "title": "Expecting Too Much, Getting Too Little: Exploring the Challenges and Design Opportunities of Asynchronous AI Interviewers",
+          "authors": "Md Nazmus Sakib, N. M. Rayasam, S. Dey",
+          "venue": "ACM CSCW 2026",
+          "type": "",
+          "badge": "badge-purple",
+          "award": "Best Paper",
+          "pdf": "/files/Interviewer_CSCW_2026.pdf",
+          "code": null,
+          "talk": null
+        },
         {
           "title": "ReflectEd: Evaluating Reflection-Driven Learning in an AI-Assisted System",
-          "authors": "M. N. Sakib, I. Tarin, N. M. Rayasam, M. Gaur, S. Dey",
+          "authors": "Md Nazmus Sakib, I. Tarin, N. M. Rayasam, M. Gaur, S. Dey",
           "venue": "AIED 2026",
-          "type": "Full paper",
+          "type": "",
           "badge": "badge-amber",
           "pdf": "/files/reflection_AIED_2026.pdf",
           "code": null,
@@ -15,21 +26,11 @@
         },
         {
           "title": "Competing or Collaborating? The Role of Hackathon Formats in Shaping Team Dynamics and Project Choices",
-          "authors": "S. N. Tisha, M. N. Sakib, S. Dey",
+          "authors": "S. N. Tisha, Md Nazmus Sakib, S. Dey",
           "venue": "Proceedings of the 57th ACM Technical Symposium on Computer Science Education (SIGCSE TS 2026)",
-          "type": "Full paper",
+          "type": "",
           "badge": "badge-teal",
-          "pdf": "#",
-          "code": null,
-          "talk": null
-        },
-        {
-          "title": "Expecting Too Much, Getting Too Little: Exploring the Challenges and Design Opportunities of Asynchronous AI Interviewers",
-          "authors": "M. N. Sakib, N. M. Rayasam, S. Dey",
-          "venue": "ACM CSCW 2026",
-          "type": "Full paper",
-          "badge": "badge-purple",
-          "pdf": "/files/Interviewer_CSCW_2026.pdf",
+          "pdf": "/files/Hackathon_SIGCSE_2026.pdf",
           "code": null,
           "talk": null
         }
@@ -40,21 +41,11 @@
       "entries": [
         {
           "title": "Understanding the Impact of YouTube Videos on Parents of Children with Developmental Delay and Disabilities",
-          "authors": "S. Ahmed, M. N. Sakib, S. Dey",
-          "venue": "Proceedings of the ACM on Human-Computer Interaction (PACM HCI)",
-          "type": "Journal paper",
+          "authors": "S. Ahmed, Md Nazmus Sakib, S. Dey",
+          "venue": "Proceedings of the ACM on Human-Computer Interaction (GROUP 2025)",
+          "type": "",
           "badge": "badge-amber",
-          "pdf": "#",
-          "code": null,
-          "talk": null
-        },
-        {
-          "title": "An Interdisciplinary Review of Commonsense Reasoning and Intent Detection",
-          "authors": "M. N. Sakib",
-          "venue": "arXiv preprint",
-          "type": "Preprint",
-          "badge": null,
-          "pdf": "#",
+          "pdf": "/files/DevDelay_GROUP_2025.pdf",
           "code": null,
           "talk": null
         }
@@ -65,36 +56,21 @@
       "entries": [
         {
           "title": "The Dual Role of Student and Creator: Exploring the TikTok Experience",
-          "authors": "B. K. Bulley, S. Tirumala, B. S. Mahamkali, M. N. Sakib, S. Ahmed, S. Dey",
+          "authors": "B. K. Bulley, S. Tirumala, B. S. Mahamkali, Md Nazmus Sakib, S. Ahmed, S. Dey",
           "venue": "Companion Publication of the 2024 Conference on Computer-Supported Cooperative Work and Social Computing (CSCW 2024)",
-          "type": "Short paper",
+          "type": "",
           "badge": "badge-teal",
-          "pdf": "#",
+          "pdf": "/files/Tiktok_CSCW_2024.pdf",
           "code": null,
           "talk": null
         },
         {
           "title": "Post-Roe Public Discourse: A Temporal Analysis of Discussion on US Abortion Law Changes",
-          "authors": "H. N. Venkata, V. Palakurthi, S. S. B. Devalam, M. N. Sakib, S. Ahmed, S. Dey",
+          "authors": "H. N. Venkata, V. Palakurthi, S. S. B. Devalam, Md Nazmus Sakib, S. Ahmed, S. Dey",
           "venue": "Companion Publication of the 2024 Conference on Computer-Supported Cooperative Work and Social Computing (CSCW 2024)",
-          "type": "Short paper",
+          "type": "",
           "badge": "badge-teal",
-          "pdf": "#",
-          "code": null,
-          "talk": null
-        }
-      ]
-    },
-    {
-      "year": "2022",
-      "entries": [
-        {
-          "title": "Augmented Reality Based Lifelogging System for Reminiscence",
-          "authors": "M. N. Sakib, M. M. Rahman, H. Mahmud, M. K. Hasan",
-          "venue": "Proceedings of International Conference on Fourth Industrial Revolution and Beyond",
-          "type": "Full paper",
-          "badge": "badge-purple",
-          "pdf": "#",
+          "pdf": "/files/post_roe_CSCW_2024.pdf",
           "code": null,
           "talk": null
         }
