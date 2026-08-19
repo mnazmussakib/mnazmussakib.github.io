@@ -13,7 +13,7 @@ const totalPages = Math.max(1, Math.ceil(news.length / NEWS_PER_PAGE));
   .news-about { padding: 56px 0; border-bottom: 1px solid var(--border); }
   .two-col { display: grid; grid-template-columns: 1.6fr 1fr; gap: 200px; }
   .news-item {
-    display: flex; gap: 16px; padding: 13px 0 13px 12px; border-bottom: 1px solid var(--border); align-items: baseline;
+    display: flex; gap: 16px; padding: 13px 0 13px 12px; border-bottom: 1px solid var(--border); align-items: center;
     border-left: 3px solid transparent;
     animation: news-sweep 4.8s ease-in-out infinite;
   }
@@ -23,9 +23,9 @@ const totalPages = Math.max(1, Math.ceil(news.length / NEWS_PER_PAGE));
     4%, 14% { background: var(--amber-50); border-left-color: var(--amber-200); }
     18% { background: transparent; border-left-color: transparent; }
   }
-  .news-date { font-size: 12px; color: var(--text-tertiary); min-width: 75px; font-family: var(--font-body); }
-  .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-  .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
+  .news-date { font-size: 12px; color: var(--text-tertiary); min-width: 75px; font-family: var(--font-body); flex-shrink: 0; }
+  .news-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; flex: 1; }
+  .news-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 99px; letter-spacing: 0.03em; flex-shrink: 0; text-align: center; }
   .news-icon { width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; color: var(--amber-600); }
   .news-pagination { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
   .news-page-btn {
@@ -79,8 +79,8 @@ const totalPages = Math.max(1, Math.ceil(news.length / NEWS_PER_PAGE));
                   </svg>
                 )}
                 {item.text}
-                <span class={`news-badge ${item.badge}`}>{item.label}</span>
               </span>
+              <span class={`news-badge ${item.badge}`}>{item.label}</span>
             </div>
           );
         })}
