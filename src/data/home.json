@@ -2,7 +2,7 @@
   "hero": {
     "pill": ["Human-centered AI", "Social Computing"],
     "name": "Md Nazmus Sakib",
-    "role": "PhD Student",
+    "role": "PhD Student, University of Maryland Baltimore County (UMBC)",
     "paragraphs": [
       "I am a fourth-year Ph.D. student in Computer Science at the University of Maryland, Baltimore County (UMBC). My research lies at the intersection of human-centered AI and social computing. I design, build, and study AI-assisted systems that support learning, reflection, and positive user experiences.",
       "My current research examines how asynchronous AI interview systems can be designed to improve applicant agency, trust, and the overall recruitment experience. I also explore how AI-assisted systems can support reflection, learning, and collaboration.",
@@ -11,7 +11,7 @@
     "photo": ""
   },
   "contact": {
-    "email": "msakib1@email.edu",
+    "email": "msakib1@umbc.edu",
     "scholar": "https://scholar.google.com/citations?user=WEI2SKgAAAAJ&hl=en",
     "linkedin": "https://linkedin.com"
   },
