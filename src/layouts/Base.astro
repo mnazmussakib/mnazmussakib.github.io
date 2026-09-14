@@ -7,7 +7,7 @@ export interface Props {
   title?: string;
   description?: string;
 }
-const { title = "Md. Nazmus Sakib", description = "PhD Researcher in Human-AI Interaction" } = Astro.props;
+const { title = "Nazmus Sakib", description = "PhD Researcher in Human-AI Interaction" } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 <!doctype html>
@@ -104,7 +104,7 @@ const currentPath = Astro.url.pathname;
 <body>
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Md. Nazmus Sakib<span></span></a>
+      <a href="/" class="nav-logo">Nazmus Sakib<span></span></a>
       <ul class="nav-links">
         <li><a href="/" class={currentPath === "/" ? "active" : ""}>Home</a></li>
         <li><a href="/research" class={currentPath.startsWith("/research") ? "active" : ""}>Research</a></li>

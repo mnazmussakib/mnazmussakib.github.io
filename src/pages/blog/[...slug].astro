@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 ---
-<Base title={`${post.data.title} — Md. Nazmus Sakib`} description={post.data.excerpt}>
+<Base title={`${post.data.title} — Nazmus Sakib`} description={post.data.excerpt}>
 <style>
   .post-hero { padding: 56px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
   .post-date { font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; }
