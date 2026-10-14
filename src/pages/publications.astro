@@ -60,6 +60,7 @@ const publications = publicationsData.years;
             </div>
           </div>
           <div class="pub-links">
+            {pub.page && <a href={pub.page} class="pub-link">Details →</a>}
             {pub.pdf  && <a href={pub.pdf}  class="pub-link" target="_blank" rel="noopener">PDF →</a>}
             {pub.code && <a href={pub.code} class="pub-link ghost" target="_blank" rel="noopener">Code</a>}
             {pub.talk && <a href={pub.talk} class="pub-link ghost" target="_blank" rel="noopener">Talk</a>}

@@ -17,6 +17,7 @@ const research = defineCollection({
           title: z.string(),
           venue: z.string(),
           pdf: z.string().nullable().default(null),
+          page: z.string().nullable().default(null),
           code: z.string().nullable().default(null),
           talk: z.string().nullable().default(null),
         })

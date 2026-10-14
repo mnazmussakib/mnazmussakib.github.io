@@ -1,0 +1,191 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const pdf = "/files/Interviewer_CSCW_2026.pdf";
+const doi = "https://doi.org/10.1145/3816931";
+
+const contributions = [
+  "Large-scale analysis of 11 subreddit discussions on AI-driven asynchronous interviews, uncovering how job seekers experience and adapt to these systems in real-world contexts.",
+  "Identification of key experiential gaps arising from organizational language, familiarity with contemporary AI technologies, and system limitations — and how these affect autonomy, trust, and inclusion.",
+  "Design and evaluation of an AI-driven interview interface through the lens of Self-Determination Theory, examining how response and feedback features shape agency, competence, and emotional engagement.",
+  "An extension of CSCW research on technology adoption, focused on how perceptions of social and organizational factors shape both adoption and the development of critical workarounds.",
+];
+
+const themes = [
+  { n: "01", title: "Misalignment Between Applicant Expectations", desc: "Organizational “AI” language and familiarity with LLMs like ChatGPT set expectations the actual systems rarely met." },
+  { n: "02", title: "Perception of Disrespect and Devaluation", desc: "One-way, non-interactive formats left applicants feeling unseen — “performing to silence.”" },
+  { n: "03", title: "Concerns Regarding Transparency", desc: "Little clarity on what was evaluated, who reviewed responses, or how recorded data would be used or stored." },
+  { n: "04", title: "Strategic Self-Presentation & Deceptive Practices", desc: "Applicants rehearsed keywords, scripted answers, and in some cases used AI tools to game perceived scoring." },
+  { n: "05", title: "Accessibility Challenges for Neurodivergent Candidates", desc: "Rigid formats risked misreading neurodivergent behavior, with little room to disclose or seek accommodation." },
+  { n: "06", title: "Positive Perception and Acceptance", desc: "Convenience, standardization, and reduced interviewer bias were acknowledged — though acceptance often reflected resignation rather than trust." },
+];
+---
+<Base title="Expecting Too Much, Getting Too Little — Nazmus Sakib" description="CSCW 2026 Best Paper: exploring the challenges and design opportunities of asynchronous AI interviewers">
+<style>
+  .page-hero { padding: 64px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .pub-eyebrow-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .back-link { font-size: 13px; color: var(--text-tertiary); text-decoration: none; }
+  .back-link:hover { color: var(--amber-600); }
+  h1.pub-title { margin: 10px 0 16px; font-size: clamp(1.6rem, 3.4vw, 2.3rem); line-height: 1.25; }
+  .pub-authors { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+  .pub-authors strong { color: var(--text-primary); }
+  .pub-venue { font-size: 13px; color: var(--text-tertiary); font-style: italic; margin-bottom: 18px; }
+  .award-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .award-icon { width: 15px; height: 15px; margin-right: 5px; vertical-align: -3px; color: var(--amber-600); }
+  .action-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .action-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    padding: 9px 18px; border-radius: var(--radius-md); border: 1px solid var(--border);
+    text-decoration: none; transition: all 0.15s;
+  }
+  .action-btn.primary { background: var(--amber-200); color: var(--amber-900); border-color: var(--amber-200); }
+  .action-btn.primary:hover { background: var(--amber-100); }
+  .action-btn.ghost { background: transparent; color: var(--text-secondary); }
+  .action-btn.ghost:hover { background: var(--bg-muted); color: var(--text-primary); border-color: var(--border-hover); }
+
+  .pub-section { padding: 0 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .pub-section:last-of-type { border-bottom: none; }
+  .pub-section h2 { font-size: 1.3rem; margin-bottom: 16px; }
+  .pub-section p { font-size: 14.5px; line-height: 1.85; color: var(--text-secondary); max-width: 720px; }
+
+  .contrib-list { list-style: none; display: flex; flex-direction: column; gap: 14px; max-width: 720px; }
+  .contrib-list li { font-size: 14.5px; line-height: 1.7; color: var(--text-secondary); padding-left: 22px; position: relative; }
+  .contrib-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--amber-200); }
+
+  .theme-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .theme-card {
+    background: var(--bg-muted); border-radius: var(--radius-lg); padding: 18px 20px;
+    border: 1px solid var(--border);
+  }
+  .theme-num { font-family: var(--font-display); font-size: 1.1rem; color: var(--amber-200); margin-bottom: 6px; }
+  .theme-card h3 { font-size: 0.95rem; margin-bottom: 6px; line-height: 1.4; }
+  .theme-card p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); max-width: none; }
+
+  .design-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .design-col {
+    background: var(--bg-muted); border-radius: var(--radius-lg); padding: 20px 22px; border: 1px solid var(--border);
+  }
+  .design-col h3 { font-size: 1rem; margin-bottom: 10px; }
+  .design-col ul { list-style: none; font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; }
+  .design-col li { margin-bottom: 4px; }
+  .design-col .result { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-tertiary); }
+
+  .keyword-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+
+  @media (max-width: 640px) {
+    .theme-grid { grid-template-columns: 1fr; }
+    .design-cols { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container">
+
+  <div class="page-hero">
+    <div class="pub-eyebrow-row">
+      <p class="section-eyebrow">Publication &middot; CSCW 2026</p>
+      <a href="/publications" class="back-link">&larr; Back to Publications</a>
+    </div>
+
+    <h1 class="pub-title">Expecting Too Much, Getting Too Little: Exploring the Challenges and Design Opportunities of Asynchronous AI Interviewers</h1>
+
+    <p class="pub-authors" set:html={"Md Nazmus Sakib, N. M. Rayasam, S. Dey".replace("Md Nazmus Sakib", "<strong>Md Nazmus Sakib</strong>")}></p>
+    <p class="pub-venue">Proc. ACM Hum.-Comput. Interact., Vol. 10, No. 6, Article CSCW083 (October 2026) &middot; University of Maryland, Baltimore County</p>
+
+    <div class="award-row">
+      <span class="tag badge-amber">
+        <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;">
+          <path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/>
+          <path d="M7 5H4a3 3 0 0 0 3 5"/>
+          <path d="M17 5h3a3 3 0 0 1-3 5"/>
+          <path d="M12 14v4M8 21h8"/>
+        </svg>
+        Best Paper Award (Top 1%)
+      </span>
+      <span class="tag badge-purple">Full paper</span>
+    </div>
+
+    <div class="action-row">
+      <a href={pdf} class="action-btn primary" target="_blank" rel="noopener">PDF &rarr;</a>
+      <a href={doi} class="action-btn ghost" target="_blank" rel="noopener">DOI: 10.1145/3816931 &rarr;</a>
+    </div>
+  </div>
+
+  <div class="pub-section">
+    <p class="section-eyebrow">Abstract</p>
+    <p>
+      Organizations use asynchronous AI interview systems to efficiently manage large applicant pools, enabling quick and uniform evaluations. However, concerns remain about their impact on user agency and the lack of personalization applicants experience with these systems. To examine how applicants perceive and experience these tools, we conducted a two-phase study: an analysis of 11 subreddit discussions on interview experiences with asynchronous AI interviewers, followed by a semi-structured interview study with 17 participants. Qualitative analysis revealed key issues such as mismatched expectations, amplified by organizational rhetoric and experiences with Large Language Models, which shaped participants&rsquo; sense of agency and trust &mdash; often leading to workarounds and deceptive practices. In a follow-up study, we designed an interface with two features, response variants and feedback variants, and evaluated it across six groups (N&nbsp;=&nbsp;180, 30 participants each) to assess whether these features support users&rsquo; sense of agency, competence, and relatedness. Our analysis suggests that even subtle design changes can enhance user autonomy, and that carefully designed feedback can provide meaningful support in high-stakes interview contexts.
+    </p>
+  </div>
+
+  <div class="pub-section">
+    <p class="section-eyebrow">Key Contributions</p>
+    <h2>What this paper adds</h2>
+    <ul class="contrib-list">
+      {contributions.map(c => <li>{c}</li>)}
+    </ul>
+  </div>
+
+  <div class="pub-section">
+    <p class="section-eyebrow">Study 1 &middot; Reddit + Interviews</p>
+    <h2>Six themes in how applicants experience AI interviews</h2>
+    <p style="margin-bottom: 20px;">
+      We analyzed ~18K Reddit entries across 11 subreddits and conducted 17 semi-structured interviews to understand how job seekers experience and adapt to asynchronous AI interviewers.
+    </p>
+    <div class="theme-grid">
+      {themes.map(t => (
+        <div class="theme-card">
+          <div class="theme-num">{t.n}</div>
+          <h3>{t.title}</h3>
+          <p>{t.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="pub-section">
+    <p class="section-eyebrow">Study 2 &middot; Design &amp; Evaluation</p>
+    <h2>Designing toward agency and acknowledgment</h2>
+    <p style="margin-bottom: 20px;">
+      Guided by Study 1, we built an AI-driven mock-interview interface and evaluated two feature types &mdash; response control and feedback &mdash; across 180 participants (6 groups), using Self-Determination Theory to measure autonomy, competence, and relatedness.
+    </p>
+    <div class="design-cols">
+      <div class="design-col">
+        <h3>Response Variants</h3>
+        <ul>
+          <li>Re-record only</li>
+          <li>Edit transcription only</li>
+          <li>Choice of either</li>
+        </ul>
+        <div class="result">Editing scored highest on control and expressiveness; having both options boosted confidence but added decision friction.</div>
+      </div>
+      <div class="design-col">
+        <h3>Feedback Variants</h3>
+        <ul>
+          <li>Motivational only</li>
+          <li>Evaluative only</li>
+          <li>Both combined</li>
+        </ul>
+        <div class="result">Combined feedback felt most useful and acknowledging; motivational-only felt most confidence-building on its own.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-section" style="margin-bottom: 0; padding-bottom: 0;">
+    <p class="section-eyebrow">Keywords</p>
+    <div class="keyword-row">
+      <span class="tag">Asynchronous AI Interviewer</span>
+      <span class="tag">AI-mediated Recruitment</span>
+      <span class="tag">Self-Determination Theory</span>
+      <span class="tag">Human-AI Interaction</span>
+      <span class="tag">Responsible AI</span>
+    </div>
+
+    <div class="action-row" style="margin-top: 28px;">
+      <a href={pdf} class="action-btn primary" target="_blank" rel="noopener">Read the full PDF &rarr;</a>
+      <a href={doi} class="action-btn ghost" target="_blank" rel="noopener">View on ACM DL &rarr;</a>
+    </div>
+  </div>
+
+</div>
+</Base>
